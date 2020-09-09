@@ -1,0 +1,13 @@
+<launch>
+	<node name="elevation_map_publisher" pkg="map_merging" type="elevation_map_publisher" output="screen"  />
+
+
+
+	<arg name="map_file" default="$(find map_merging)/map.yaml"/>
+ 	<!-- Run the map server -->
+ 	<node name="map_server" pkg="map_server" type="map_server" args="$(arg map_file)" />
+
+	<node name="plain_map_publisher" pkg="map_merging" type="plain_map_publisher" output="screen"  />
+
+
+</launch>
